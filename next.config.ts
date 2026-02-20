@@ -1,7 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: 'export',
+  // Requires basePath for GitHub Pages sub-path hosting matching the repo name
+  basePath: '/health-monitor',
+  // Disable image optimization API since it doesn't work in static exports
+  images: {
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;
