@@ -1,0 +1,9 @@
+1:"$Sreact.fragment"
+2:I[47257,["/health-monitor/_next/static/chunks/ff1a16fafef87110.js","/health-monitor/_next/static/chunks/a2dfb6fc5208ab9b.js"],"ClientPageRoot"]
+3:I[30257,["/health-monitor/_next/static/chunks/18f38dbeee9f54d3.js","/health-monitor/_next/static/chunks/68eec6fd5d611db3.js","/health-monitor/_next/static/chunks/e0f3c116998a05da.js","/health-monitor/_next/static/chunks/70d70a0e0a36d908.js"],"default"]
+6:I[97367,["/health-monitor/_next/static/chunks/ff1a16fafef87110.js","/health-monitor/_next/static/chunks/a2dfb6fc5208ab9b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+0:{"buildId":"ut12BmzU8gUI8Xhp1_-CN","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/health-monitor/_next/static/chunks/68eec6fd5d611db3.js","async":true}],["$","script","script-1",{"src":"/health-monitor/_next/static/chunks/e0f3c116998a05da.js","async":true}],["$","script","script-2",{"src":"/health-monitor/_next/static/chunks/70d70a0e0a36d908.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
+4:{}
+5:{}
+8:null
