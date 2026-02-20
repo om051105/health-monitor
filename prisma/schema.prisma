@@ -1,0 +1,81 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      String   @default("ASHA") // PENDING, ASHA, OFFICIAL, ADMIN
+  region    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  reports   Report[]
+}
+
+model Report {
+  id          String   @id @default(cuid())
+  reporterId  String
+  reporter    User     @relation(fields: [reporterId], references: [id])
+  timestamp   DateTime @default(now())
+  
+  // Location
+  latitude    Float
+  longitude   Float
+  locationName String?
+
+  // Medical Data
+  symptoms    String // JSON string or comma-separated
+  severity    String // LOW, MEDIUM, HIGH, CRITICAL
+  patientCount Int    @default(1)
+  
+  // Status
+  status      String   @default("PENDING") // PENDING, VERIFIED, RESOLVED
+  notes       String?
+  
+  images      String? // URLs separated by comma
+}
+
+model WaterSource {
+  id        String   @id @default(cuid())
+  name      String
+  type      String   // WELL, RIVER, POND, TAP, TANK
+  latitude  Float
+  longitude Float
+  region    String
+  logs      WaterQualityLog[]
+}
+
+model WaterQualityLog {
+  id             String      @id @default(cuid())
+  sourceId       String
+  source         WaterSource @relation(fields: [sourceId], references: [id])
+  timestamp      DateTime    @default(now())
+  
+  // Parameters
+  ph             Float
+  turbidity      Float // NTU
+  dissolvedOxygen Float? // mg/L
+  bacteriaLevel  Float? // CFU/100ml (Coliform)
+  
+  // Status
+  status         String // SAFE, CAUTION, DANGER
+}
+
+model Alert {
+  id          String   @id @default(cuid())
+  title       String
+  message     String
+  severity    String   // INFO, WARNING, CRITICAL
+  region      String
+  status      String   @default("ACTIVE") // ACTIVE, RESOLVED
+  createdAt   DateTime @default(now())
+}
